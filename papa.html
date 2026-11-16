@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днем Рождения, Папа! 44 года</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Нежно-розовый фон */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #ffe6e6 0%, #ffc2d1 100%);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden; 
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            max-width: 800px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(217, 56, 56, 0.15);
+            padding: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            z-index: 10; /* Текст находится на 10-м уровне */
+        }
+        h1 {
+            font-family: 'Comfortaa', cursive;
+            color: #d93838;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-weight: 400;
+            color: #666;
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        p {
+            line-height: 1.8;
+            font-size: 1.1em;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Кнопка */
+        .love-button {
+            margin-top: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 1.2em;
+            background: linear-gradient(45deg, #ff4d6d, #d93838);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(217, 56, 56, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 11; /* Кнопка чуть выше текста */
+        }
+        
+        .love-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(217, 56, 56, 0.6);
+        }
+        
+        .love-button:active {
+            transform: translateY(1px);
+        }
+
+        /* Сердечки */
+        .heart {
+            position: fixed;
+            bottom: -50px;
+            font-size: 24px;
+            pointer-events: none; /* Сердечки не мешают кликам */
+            animation: floatUp linear forwards;
+            z-index: 9999; /* ОГРОМНОЕ значение, чтобы пролетать поверх всего */
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.5);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2em; }
+            .gallery img { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>С Днем Рождения, Папа!</h1>
+        <h2>ТЕБЕ УЖЕ 44! 🎉</h2>
+
+        <p>Папочка, с днем рождения! Мне так сложно поверить, что тебе уже 44. Для меня ты всегда остаешься тем самым молодым, веселым и родным человеком.</p>
+
+        <div class="gallery">
+            <img src="photo1.jpg" alt="Семейный ужин">
+            <img src="photo2.jpg" alt="Поездка в транспорте">
+            <img src="photo3.jpg" alt="Обнимашки на улице">
+        </div>
+
+        <p>Я часто вспоминаю наше детство и очень скучаю по тем нашим старым отношениям, когда я была маленькой, а ты казался мне огромным супергероем. Сейчас мы повзрослели, но я хочу, чтобы в душе мы оставались такими же близкими, как раньше.</p>
+
+        <p>Помнишь, как мы ездили на море? Я до сих пор улыбаюсь, когда вспоминаю, как мы с тобой корчили друг другу смешные рожицы, а я бесконечно выпрашивала у тебя то самое мороженое «Дракончик». Это самые теплые и счастливые моменты!</p>
+
+        <p>Спасибо тебе за то, что ты всегда рядом. Будь здоров, счастлив и знай, что я тебя очень сильно люблю!</p>
+
+        <button id="loveBtn" class="love-button">Твоя дочь ❤️</button>
+    </div>
+
+    <script>
+        const btn = document.getElementById('loveBtn');
+        const emojis = ['❤️', '💖', '💕', '💗', '💓', '🌸', '✨'];
+
+        btn.addEventListener('click', () => {
+            for (let i = 0; i < 25; i++) {
+                setTimeout(createHeart, i * 40);
+            }
+        });
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            // Случайная позиция по горизонтали
+            heart.style.left = Math.random() * 100 + 'vw';
+            
+            // Случайный размер
+            const size = Math.random() * 25 + 15; 
+            heart.style.fontSize = size + 'px';
+            
+            // Случайная скорость
+            const duration = Math.random() * 2 + 2; 
+            heart.style.animationDuration = duration + 's';
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+    </script>
+
+</body>
+</html>
